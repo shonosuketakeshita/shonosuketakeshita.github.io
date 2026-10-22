@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSSの読み込み -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  <title>Links</title>
+  <style>
+    h1 {
+      margin-top: 20px; /* 見出しの上部の余白 */
+      margin-left: 20px; /* 見出しの左側の余白 */
+    }
+
+    h2, h4, h5 {
+      text-align: left;
+      border-bottom: 2px solid #000; /* 下線のスタイルを追加 */
+      padding-bottom: 5px; /* 下線とテキストの間隔を調整 */
+      margin-bottom: 20px; /* 下線と次の要素の間隔を調整 */
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 0;
+    }
+
+    .navbar-text, .navbar-nav .nav-link {
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+    }
+
+    /* スマホ表示の調整 */
+    @media (max-width: 575px) {
+      h1 { font-size: 1.6rem; margin-left: 15px; }
+    }
+
+    /* 上に戻るボタン (右下に表示、スクロールしたときだけ現れる) */
+    .to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background-color: rgba(52, 58, 64, 0.85); /* フッターと同じ濃いグレー */
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 1030;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    .to-top.show { opacity: 1; visibility: visible; }
+    .to-top:hover { background-color: rgba(52, 58, 64, 1); }
+    @media (max-width: 575px) {
+      .to-top { right: 14px; bottom: 14px; }
+    }
+
+    /* リンク集 */
+    .link-list {
+      list-style-type: square;
+      padding-left: 1.2em;
+      margin-bottom: 1.5rem;
+    }
+    .link-list > li { margin-bottom: 0.6rem; }
+    /* arXiv の分野ごとの new / recent を揃えて並べる */
+    .arxiv-cats {
+      display: grid;
+      grid-template-columns: 5.5em auto;
+      row-gap: 0.25rem;
+      margin-top: 0.4rem;
+    }
+    .arxiv-cats .cat { font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<!-- 見出し -->
+<h1 class="mt-4">Shonosuke Takeshita's Homepage</h1>
+
+<!-- ナビゲーションバー -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- 言語切り替え (スマホでは最終更新日を隠す) -->
+    <div class="ml-auto order-lg-last d-flex align-items-center">
+      <div class="btn-group btn-group-sm" role="group" aria-label="Language">
+        <a class="btn btn-outline-dark" href="Link_Ja.html" lang="ja">日本語</a>
+        <a class="btn btn-dark active" href="Link_En.html" lang="en" aria-current="page">English</a>
+      </div>
+      <span class="navbar-text ml-3 d-none d-md-inline">Last Update: 2026.10.21</span>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="S_Takeshita_En.html">Home</a>
+        <a class="nav-item nav-link" href="About_En.html">About me</a>
+        <a class="nav-item nav-link" href="Publications_En.html">Publications</a>
+        <a class="nav-item nav-link" href="Presentations_En.html">Presentations</a>
+        <a class="nav-item nav-link active" href="Link_En.html">Links <span class="sr-only">(current)</span></a>
+      </div>
+    </div>
+  </nav>
+
+<br>  
+<!-- Links (external sites open in a new tab) -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <h4>Paper Search</h4>
+      <ul class="link-list">
+        <li><a href="https://inspirehep.net/" target="_blank" rel="noopener">INSPIRE-HEP</a></li>
+        <li><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a>
+          <div class="arxiv-cats">
+            <span class="cat">hep-ph</span><span><a href="https://arxiv.org/list/hep-ph/new" target="_blank" rel="noopener">new</a> / <a href="https://arxiv.org/list/hep-ph/recent" target="_blank" rel="noopener">recent</a></span>
+            <span class="cat">hep-th</span><span><a href="https://arxiv.org/list/hep-th/new" target="_blank" rel="noopener">new</a> / <a href="https://arxiv.org/list/hep-th/recent" target="_blank" rel="noopener">recent</a></span>
+            <span class="cat">hep-lat</span><span><a href="https://arxiv.org/list/hep-lat/new" target="_blank" rel="noopener">new</a> / <a href="https://arxiv.org/list/hep-lat/recent" target="_blank" rel="noopener">recent</a></span>
+            <span class="cat">astro-ph</span><span><a href="https://arxiv.org/list/astro-ph/new" target="_blank" rel="noopener">new</a> / <a href="https://arxiv.org/list/astro-ph/recent" target="_blank" rel="noopener">recent</a></span>
+            <span class="cat">gr-qc</span><span><a href="https://arxiv.org/list/gr-qc/new" target="_blank" rel="noopener">new</a> / <a href="https://arxiv.org/list/gr-qc/recent" target="_blank" rel="noopener">recent</a></span>
+          </div>
+        </li>
+      </ul>
+
+      <h4>Universities &amp; Institutes</h4>
+      <ul class="link-list mb-4">
+        <li><a href="http://theo.phys.sci.hiroshima-u.ac.jp/~sohaken/en/" target="_blank" rel="noopener">Theoretical Particle and Hadron Physics Group, Hiroshima University</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- フッター -->
+<footer class="text-center bg-dark text-white">
+  <p class="py-3">© 2023 Shonosuke Takeshita</p>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, Popper.js, Bootstrap JSの順番に読み込む -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<!-- 上に戻るボタン -->
+<button type="button" id="toTop" class="to-top" aria-label="Back to top" title="Back to top">
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6-6 6 6"/></svg>
+</button>
+<script>
+  (function () {
+    var btn = document.getElementById('toTop');
+    function toggle() {
+      if (window.pageYOffset > 300) { btn.classList.add('show'); }
+      else { btn.classList.remove('show'); }
+    }
+    window.addEventListener('scroll', toggle);
+    toggle();
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+</body>
+</html>
