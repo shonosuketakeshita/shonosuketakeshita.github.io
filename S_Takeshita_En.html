@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ja">
+<html lang="en">
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -32,6 +32,30 @@
       text-align: center;
     }
 
+    /* 名前・新着情報・連絡先の見出し (下線つき、下の余白も共通) */
+    .profile h4, .info h4 {
+      border-bottom: 2px solid #000; /* 他ページの見出しと同じ下線 */
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    .info-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .info-list li {
+      display: grid;
+      grid-template-columns: 7em 1fr; /* 日付・項目名と内容を揃える */
+      margin-bottom: 0.5rem;
+    }
+    .contact-list li { grid-template-columns: 5em 1fr; }
+    .info-label { font-weight: 700; }
+    /* 新着情報は最新2件だけ表示 (3件目以降は自動で非表示) */
+    .news-list li:nth-child(n+3) { display: none; }
+    @media (max-width: 575px) {   /* スマホでは日付・項目名を上に */
+      .info-list li, .contact-list li { grid-template-columns: 1fr; }
+    }
+
     /* スマホ表示の調整 */
     @media (max-width: 575px) {
       h1 { font-size: 1.6rem; margin-left: 15px; }
@@ -62,23 +86,24 @@
 </nav>
 
 <!-- 画像とテキスト -->
+<!-- 表示順: PC = プロフィール, 写真, 新着情報, 連絡先 / スマホ = プロフィール, 新着情報, 連絡先, 写真 -->
 <div class="container">
   <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-7 profile order-1">
       <br>
       <h4>Shonosuke Takeshita</h4>
       <ul>
         <li><b>Grade</b></li>
         <p>Third-year Ph.D. student</p>
         <li><b>Affiliation</b></li>
-        <p>Theoretical Particle and Hadron Physics Group, Hiroshima University</p>
+        <p>Theoretical Particle and Hadron Physics Group, Hiroshima University <a href="http://theo.phys.sci.hiroshima-u.ac.jp/~sohaken/">(Link)</a></p>
         <li><b>Research Keywords</b></li>
         <p>Particle Phenomenology, Physics beyond the Standard Model, Axion</p>
       </ul>
       <br>
       <h6>Please click <a href="About_En.html">here</a> for more information.</h6>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 order-4 order-md-2 mb-4 mb-md-0 mt-md-3">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -96,18 +121,35 @@
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">前へ</span>
+          <span class="sr-only">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">次へ</span>
+          <span class="sr-only">Next</span>
         </a>
       </div>
     </div>
+
+  <!-- What's new & Contact -->
+    <!-- What's new: add new items at the top (only the latest 2 are shown) -->
+    <div class="col-md-7 info mt-4 mb-4 order-2 order-md-3">
+      <h4>What's new</h4>
+      <ul class="info-list news-list">
+        <li><span class="info-label">2026.10.21</span><span>Updated <a href="Publications_En.html">Publications</a>.</span></li>
+        <li><span class="info-label">2026.10.20</span><span>Updated <a href="About_En.html">About me</a>.</span></li>
+        <li><span class="info-label">2026.10.19</span><span>Updated <a href="About_En.html">About me</a>, <a href="Publications_En.html">Publications</a> and <a href="Presentations_En.html">Presentations</a>.</span></li>
+      </ul>
+    </div>
+    <!-- Contact -->
+    <div class="col-md-5 info mt-md-4 mb-4 order-3 order-md-4">
+      <h4>Contact</h4>
+      <ul class="info-list contact-list">
+        <li><span class="info-label">Office</span><span>Room C219, Science Building C <span class="text-nowrap">at Higashi-Hiroshima Campus</span></span></li>
+        <li><span class="info-label">E-mail</span><span>shonosuke_at_hiroshima-u.ac.jp</span></li>
+      </ul>
+    </div>
   </div>
 </div>
-
-
 
 <!-- フッター -->
 <footer class="text-center bg-dark text-white">

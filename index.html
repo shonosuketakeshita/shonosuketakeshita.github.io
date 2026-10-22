@@ -41,6 +41,30 @@
       text-align: center;
     }
 
+    /* 名前・新着情報・連絡先の見出し (下線つき、下の余白も共通) */
+    .profile h4, .info h4 {
+      border-bottom: 2px solid #000; /* 他ページの見出しと同じ下線 */
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+    .info-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .info-list li {
+      display: grid;
+      grid-template-columns: 7em 1fr; /* 日付・項目名と内容を揃える */
+      margin-bottom: 0.5rem;
+    }
+    .contact-list li { grid-template-columns: 5em 1fr; }
+    .info-label { font-weight: 700; }
+    /* 新着情報は最新2件だけ表示 (3件目以降は自動で非表示) */
+    .news-list li:nth-child(n+3) { display: none; }
+    @media (max-width: 575px) {   /* スマホでは日付・項目名を上に */
+      .info-list li, .contact-list li { grid-template-columns: 1fr; }
+    }
+
     /* スマホ表示の調整 */
     @media (max-width: 575px) {
       h1 { font-size: 1.6rem; margin-left: 15px; }
@@ -71,23 +95,24 @@
 </nav>
 
 <!-- 画像とテキスト -->
+<!-- 表示順: PC = プロフィール, 写真, 新着情報, 連絡先 / スマホ = プロフィール, 新着情報, 連絡先, 写真 -->
 <div class="container">
   <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-7 profile order-1">
       <br>
       <h4>竹下 昌之介</h4>
       <ul>
         <li><b>学年</b></li>
         <p>博士課程後期3年</p>
         <li><b>所属</b></li>
-        <p>広島大学素粒子ハドロン理論研究室</p>
+        <p>広島大学素粒子ハドロン理論研究室 <a href="http://theo.phys.sci.hiroshima-u.ac.jp/~sohaken/">(リンク)</a></p>
         <li><b>研究キーワード</b></li>
         <p>素粒子現象論、標準模型を超える物理、アクシオン</p>
       </ul>
       <br>
       <h6>詳しくは<a href="About_Ja.html">こちら</a>をクリックしてください。</h6>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-5 order-4 order-md-2 mb-4 mb-md-0 mt-md-3">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -113,10 +138,27 @@
         </a>
       </div>
     </div>
+
+  <!-- 新着情報・連絡先 -->
+    <!-- 新着情報: 新しいものを一番上に追加してください (最新2件のみ表示されます) -->
+    <div class="col-md-7 info mt-4 mb-4 order-2 order-md-3">
+      <h4>新着情報</h4>
+      <ul class="info-list news-list">
+        <li><span class="info-label">2026.10.21</span><span><a href="Publications_Ja.html">出版物</a>を更新しました。</span></li>
+        <li><span class="info-label">2026.10.20</span><span><a href="About_Ja.html">私について</a>を更新しました。</span></li>
+        <li><span class="info-label">2026.10.19</span><span><a href="About_Ja.html">私について</a>・<a href="Publications_Ja.html">出版物</a>・<a href="Presentations_Ja.html">発表</a>を更新しました。</span></li>
+      </ul>
+    </div>
+    <!-- 連絡先 -->
+    <div class="col-md-5 info mt-md-4 mb-4 order-3 order-md-4">
+      <h4>連絡先</h4>
+      <ul class="info-list contact-list">
+        <li><span class="info-label">オフィス</span><span>C219, 理学部C棟, 東広島キャンパス</span></li>
+        <li><span class="info-label">メール</span><span>shonosuke_at_hiroshima-u.ac.jp</span></li>
+      </ul>
+    </div>
   </div>
 </div>
-
-
 
 <!-- フッター -->
 <footer class="text-center bg-dark text-white">
