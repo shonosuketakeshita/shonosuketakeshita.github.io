@@ -10,6 +10,11 @@
 
   <title>Shonosuke Takeshita's Homepage</title>
   <style>
+    /* スクロールバーの幅を常に確保 (ページの長さによってメニューの位置がずれないように) */
+    html {
+      scrollbar-gutter: stable;
+    }
+
     h1 {
       margin-top: 20px; /* 見出しの上部の余白 */
       margin-left: 20px; /* 見出しの左側の余白 */
@@ -99,13 +104,13 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <!-- 言語切り替え (スマホでは最終更新日を隠す) -->
+  <!-- 最終更新日と言語切り替え (ボタンは常に右端、スマホでは最終更新日を隠す) -->
   <div class="ml-auto order-lg-last d-flex align-items-center">
+    <span class="navbar-text mr-3 d-none d-md-inline">Last Update: 2026.10.21</span>
     <div class="btn-group btn-group-sm" role="group" aria-label="Language">
       <a class="btn btn-outline-dark" href="S_Takeshita_Ja.html" lang="ja">日本語</a>
       <a class="btn btn-dark active" href="S_Takeshita_En.html" lang="en" aria-current="page">English</a>
     </div>
-    <span class="navbar-text ml-3 d-none d-md-inline">Last Update: 2026.10.21</span>
   </div>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
