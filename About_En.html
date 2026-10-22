@@ -52,6 +52,33 @@
     @media (max-width: 575px) {
       h1 { font-size: 1.6rem; margin-left: 15px; }
     }
+
+    /* 上に戻るボタン (右下に表示、スクロールしたときだけ現れる) */
+    .to-top {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 44px;
+      height: 44px;
+      border: none;
+      border-radius: 50%;
+      background-color: rgba(52, 58, 64, 0.85); /* フッターと同じ濃いグレー */
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      z-index: 1030;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    .to-top.show { opacity: 1; visibility: visible; }
+    .to-top:hover { background-color: rgba(52, 58, 64, 1); }
+    @media (max-width: 575px) {
+      .to-top { right: 14px; bottom: 14px; }
+    }
   </style>
 </head>
 <body>
@@ -60,15 +87,14 @@
 <h1 class="mt-4">Shonosuke Takeshita's Homepage</h1>
 
 <!-- ナビゲーションバー -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#"><b>Menu</b></a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="S_Takeshita_En.html">Home</a>
-        <a class="nav-item nav-link active" href="About_En.html"> <span class="sr-only">(current)</span>About me</a>
+        <a class="nav-item nav-link active" href="About_En.html">About me <span class="sr-only">(current)</span></a>
         <a class="nav-item nav-link" href="Publications_En.html">Publications</a>
         <a class="nav-item nav-link" href="Presentations_En.html">Presentations</a>
         <a class="nav-item nav-link" href="About_Ja.html">Japanese</a>
@@ -87,7 +113,7 @@
       <p>My CV in full version is <a href=""/>here</a>. (Last Update: 2026.10.21)</p>
 -->      
       <h4>Name</h4>
-      <p>Shonosuke Takeshita (竹下　昌之介)</p>
+      <p>Shonosuke Takeshita (竹下 昌之介)</p>
       
       <h4>Affiliation</h4>
       <p>Theoretical Particle and Hadron Physics Group, Physics Program, Graduate School of Advanced Science and Engineering, Hiroshima University
@@ -100,7 +126,7 @@
       <p>shonosuke_at_hiroshima-u.ac.jp</p>
       
       <h4>Research Interest</h4>
-      <p class="text-break">I am interested in particle phenomenology and cosmology beyond the Standard Model, with a particular focus on the QCD axion. I construct models of new physics and investigate their experimental testability. I am also interested in the early-universe cosmology of these models. Please click <a href="Publications_En.html">here</a> for my publications.</p>
+      <p class="text-break">I am interested in particle phenomenology and cosmology beyond the Standard Model, with a particular focus on the QCD axion. I construct models of new physics and investigate their experimental testability. I am also interested in the early-universe cosmology of these models. Please see <a href="Publications_En.html">Publications</a> for the full list.</p>
       
       <h4>Research Keywords</h4>
       <ul>
@@ -164,5 +190,25 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+<!-- 上に戻るボタン -->
+<button type="button" id="toTop" class="to-top" aria-label="Back to top" title="Back to top">
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12l6-6 6 6"/></svg>
+</button>
+<script>
+  (function () {
+    var btn = document.getElementById('toTop');
+    function toggle() {
+      if (window.pageYOffset > 300) { btn.classList.add('show'); }
+      else { btn.classList.remove('show'); }
+    }
+    window.addEventListener('scroll', toggle);
+    toggle();
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
 </body>
 </html>
