@@ -71,6 +71,13 @@
     @media (max-width: 575px) {
       .to-top { right: 14px; bottom: 14px; }
     }
+    /* スマホでは更新日を小さく表示 (幅360px未満のとても小さい画面では非表示) */
+    @media (max-width: 767px) {
+      .nav-update { font-size: 0.75rem; }
+    }
+    @media (max-width: 359px) {
+      .nav-update { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -83,9 +90,9 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <!-- 最終更新日と言語切り替え (ボタンは常に右端、スマホでは最終更新日を隠す) -->
+  <!-- 更新日と言語切り替え (ボタンは常に右端) -->
   <div class="ml-auto order-lg-last d-flex align-items-center">
-    <span class="navbar-text mr-3 d-none d-md-inline">最終更新日: 2026.10.21</span>
+    <span class="navbar-text nav-update mr-2 mr-md-3">更新日: 2026.10.21</span>
     <div class="btn-group btn-group-sm" role="group" aria-label="言語">
       <a class="btn btn-dark active" href="Presentations_Ja.html" lang="ja" aria-current="page">日本語</a>
       <a class="btn btn-outline-dark" href="Presentations_En.html" lang="en">English</a>
